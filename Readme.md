@@ -5,12 +5,12 @@ A Terraria-styled hub for everything Terraria-related stored on your computer. K
 
 ### [Wiki](https://github.com/trigger-death/TerraLauncher/wiki) | [Credits](https://github.com/trigger-death/TerraLauncher/wiki/Credits) | [Image Album](https://imgur.com/a/Qh7aX)
 
-### [![Get Terra Launcher](https://i.imgur.com/8nZihFe.png)](https://github.com/trigger-death/TerraLauncher/releases/tag/1.0.0.0)
+### [![Get Terra Launcher](https://i.imgur.com/8nZihFe.png)](https://github.com/trigger-death/TerraLauncher/releases/tag/1.0.0.1)
 
 ## About
 
 * **Created By:** Robert Jordan
-* **Version:** 1.0.0.0 *(not released yet)*
+* **Version:** 1.0.0.1
 * **Language:** C#, WPF
 
 ## Requirements for Running
