@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Timer = System.Timers.Timer;
 
 namespace TerraLauncher.Controls.Terraria {
 	public class TerrariaWindow : ContentControl {
@@ -16,29 +19,18 @@ namespace TerraLauncher.Controls.Terraria {
 			DefaultStyleKeyProperty.OverrideMetadata(typeof(TerrariaWindow),
 					   new FrameworkPropertyMetadata(typeof(TerrariaWindow)));
 		}
-
 		
 		bool resizing = false;
 
 		public TerrariaWindow() {
-			/*if (CroppedFrames.WindowFrame == null) {
-				CroppedFrames.WindowFrame = DrawCropped.GetCroppedFrame(10, 2, "pack://application:,,,/TerraLauncher;component/Resources/Terraria/Controls/WindowFrame.png");
-			}*/
+
 		}
+
 
 		protected override void OnRender(DrawingContext d) {
 			DrawCropped.DrawFrame(d, CroppedFrames.WindowFrame, ActualWidth, ActualHeight);
 			base.OnRender(d);
 		}
-
-		/*public static readonly DependencyProperty TitleProperty =
-			DependencyProperty.Register("Title", typeof(string), typeof(TerrariaWindow), new
-			PropertyMetadata("Window Title"));
-
-		public string Title {
-			get { return (string)GetValue(TitleProperty); }
-			set { SetValue(TitleProperty, value); }
-		}*/
 
 		private void OnDragWindow(object sender, MouseButtonEventArgs e) {
 			Window.GetWindow(this).DragMove();
@@ -47,9 +39,14 @@ namespace TerraLauncher.Controls.Terraria {
 			Sounds.PlayClose();
 			Window.GetWindow(this).Close();
 		}
+		private void OnMinimizeWindow(object sender, MouseButtonEventArgs e) {
+			Sounds.PlayClose();
+			Window.GetWindow(this).WindowState = WindowState.Minimized;
+		}
 
 		public override void OnApplyTemplate() {
 			((TerrariaButton)GetTemplateChild("closeButton")).MouseUp += OnCloseWindow;
+			((TerrariaButton)GetTemplateChild("minimizeButton")).MouseUp += OnMinimizeWindow;
 			((Grid)GetTemplateChild("titleBar")).MouseLeftButtonDown += OnDragWindow;
 			Grid grid = (Grid)GetTemplateChild("windowGrid");
 			foreach (var child in grid.Children) {

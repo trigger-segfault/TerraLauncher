@@ -24,6 +24,9 @@
                         <local:TerrariaButton x:Name="closeButton" DockPanel.Dock="Right" Padding="0" Margin="0,12,12,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Height="20">
                             <Image Source="/TerraLauncher;component/Resources/Terraria/Buttons/CloseButton.png" Width="8" HorizontalAlignment="Center" VerticalAlignment="Center" Height="8" />
                         </local:TerrariaButton>
+                        <local:TerrariaButton x:Name="minimizeButton" DockPanel.Dock="Right" Padding="0" Margin="0,12,36,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Height="20">
+                            <Image Source="/TerraLauncher;component/Resources/Terraria/Buttons/MinimizeButton.png" Width="8" HorizontalAlignment="Center" VerticalAlignment="Center" Height="8" />
+                        </local:TerrariaButton>
                         <Rectangle x:Name="leftSizeGrip"
                             Width="7"
                             HorizontalAlignment="Left"
