@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="TerraLauncher.Controls.SetupTreeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TerraLauncher.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Background="#FFF9F9F9" FocusVisualStyle="{x:Null}">
+    <UserControl.Resources>
+        <Style x:Key="FlatButtonImageDisablable" TargetType="{x:Type Image}">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.5" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Height="20" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Orientation="Horizontal">
+            <Button x:Name="buttonEdit" HorizontalAlignment="Left" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" VerticalAlignment="Top" Width="20" ToolTip="Edit Setup" Focusable="False" IsTabStop="False" Height="20" Click="OnEdit" Padding="0" Margin="1,0">
+                <Image Source="/TerraLauncher;component/Resources/Icons/SetupEdit.png" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource FlatButtonImageDisablable}" />
+            </Button>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+
+            <Button x:Name="buttonAddFolder" HorizontalAlignment="Left" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" VerticalAlignment="Top" Width="20" ToolTip="Add Folder" Focusable="False" IsTabStop="False" Height="20" Click="OnAddFolder" Padding="0" Margin="1,0">
+                <Image Source="/TerraLauncher;component/Resources/Icons/FolderAdd.png" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource FlatButtonImageDisablable}" />
+            </Button>
+            <Button x:Name="buttonAddSetup" HorizontalAlignment="Left" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" VerticalAlignment="Top" Width="20" ToolTip="Add Setup" Focusable="False" IsTabStop="False" Height="20" Click="OnAddSetup" Padding="0" Margin="1,0">
+                <Image x:Name="imageAddSetup" Source="/TerraLauncher;component/Resources/Icons/GameAdd.png" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource FlatButtonImageDisablable}" />
+            </Button>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+
+            <Button x:Name="buttonRemove" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" ToolTip="Remove Setup" Focusable="False" IsTabStop="False" Height="20" Click="OnRemove" Padding="0" Margin="1,0">
+                <Image x:Name="imageRemove" Source="/TerraLauncher;component/Resources/Icons/Remove.png" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource FlatButtonImageDisablable}"/>
+            </Button>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+            
+            <Button x:Name="buttonMoveUp" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" ToolTip="Move Up" Focusable="False" IsTabStop="False" Height="20" Padding="0" Margin="1,0" Click="OnMoveUp">
+                <Image Source="/TerraLauncher;component/Resources/Icons/MoveUp.png" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource FlatButtonImageDisablable}"/>
+            </Button>
+            <Button x:Name="buttonMoveDown" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" Margin="0,0,1,0" VerticalAlignment="Top" Width="20" ToolTip="Move Down" Focusable="False" IsTabStop="False" Height="20" Padding="0" Click="OnMoveDown">
+                <Image Source="/TerraLauncher;component/Resources/Icons/MoveDown.png" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource FlatButtonImageDisablable}" />
+            </Button>
+        </StackPanel>
+        <TreeView x:Name="treeView" AllowDrop="True" Margin="0,24,0,0" SelectedItemChanged="OnTreeViewSelectionChanged">
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <EventSetter Event="TreeViewItem.MouseDown" Handler="OnTreeViewMouseDown"/>
+                    <EventSetter Event="TreeViewItem.MouseMove" Handler="OnTreeViewMouseMove"/>
+                    <EventSetter Event="TreeViewItem.DragOver"  Handler="OnTreeViewDragOver"/>
+                    <EventSetter Event="TreeViewItem.Drop"      Handler="OnTreeViewDrop"/>
+                </Style>
+            </TreeView.ItemContainerStyle>
+        </TreeView>
+    </Grid>
+</UserControl>

@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="TerraLauncher.Controls.Terraria.TerrariaSetupEntry"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TerraLauncher.Controls.Terraria"
+             mc:Ignorable="d" 
+             Height="96" d:DesignWidth="400" Margin="0,0,26,10" VerticalAlignment="Top" GotFocus="OnGotFocus" LostFocus="OnLostFocus">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Controls/Terraria/TerrariaStyles.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid x:Name="setupFrame">
+        <Grid x:Name="clientArea" Margin="12,8,8,8">
+            <Grid  Width="72" Height="72" HorizontalAlignment="Left">
+                <Rectangle Margin="2" Fill="#FF6675CC"/>
+                <Image x:Name="imageIcon" Source="/TerraLauncher;component/Resources/Terraria/SetupIcons/SetupIconTree.png"/>
+                <Image Source="/TerraLauncher;component/Resources/Terraria/SetupIcons/SetupIconFrame.png"/>
+            </Grid>
+            
+            <Label x:Name="labelName" Content="Vanilla Terraria" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="76,3,0,0" Foreground="White" FontSize="24" FontFamily="/TerraLauncher;component/Resources/#Andy">
+                <Label.Effect>
+                    <DropShadowEffect ShadowDepth="0" RenderingBias="Quality" />
+                </Label.Effect>
+            </Label>
+            <Label x:Name="labelDetails" Content="v1.3.5.3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="96,0,0,0" Foreground="White" FontSize="22" FontFamily="/TerraLauncher;component/Resources/#Andy">
+                <Label.Effect>
+                    <DropShadowEffect ShadowDepth="0" RenderingBias="Quality" />
+                </Label.Effect>
+            </Label>
+
+            <StackPanel x:Name="stackPanelOptions" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" FlowDirection="RightToLeft">
+                <!--<local:TerrariaButton x:Name="buttonProject" Width="36" Height="36" Margin="5,0,0,0" Padding="4" MouseUp="OnOpenProject">
+                    <local:TerrariaButton.ToolTip>
+                        <local:TerrariaTooltip x:Name="tooltipProject" Text="Open Project"/>
+                    </local:TerrariaButton.ToolTip>
+                    <Image Source="/TerraLauncher;component/Resources/Controls/ProjectButton.png" Width="26" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </local:TerrariaButton>
+                <local:TerrariaButton x:Name="buttonHome" Width="36" Height="36" Margin="5,0,0,0" Padding="4" MouseUp="OnOpenExeFolder">
+                    <local:TerrariaButton.ToolTip>
+                        <local:TerrariaTooltip x:Name="tooltipHome" Text="Open Executable Folder"/>
+                    </local:TerrariaButton.ToolTip>
+                    <Image Source="/TerraLauncher;component/Resources/Controls/HomeButton.png" Width="22" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </local:TerrariaButton>
+                <local:TerrariaButton x:Name="buttonFolder" Width="36" Height="36" Margin="5,0,0,0" Padding="4" MouseUp="OnOpenSaveFolder">
+                    <local:TerrariaButton.ToolTip>
+                        <local:TerrariaTooltip x:Name="tooltipFolder" Text="Open Save Folder"/>
+                    </local:TerrariaButton.ToolTip>
+                    <Image Source="/TerraLauncher;component/Resources/Controls/FolderButton.png" Width="28" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </local:TerrariaButton>
+                <local:TerrariaButton x:Name="buttonPlay" Width="36" Height="36" Margin="5,0,0,0" Padding="4" MouseUp="OnLaunchGame">
+                    <local:TerrariaButton.ToolTip>
+                        <local:TerrariaTooltip x:Name="tooltipLaunch" Text="Launch Game"/>
+                    </local:TerrariaButton.ToolTip>
+                    <Image Source="/TerraLauncher;component/Resources/Controls/PlayButton.png" Width="18" Height="28" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </local:TerrariaButton>-->
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,51 @@
+﻿<Window x:Class="TerraLauncher.Windows.EditToolWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TerraLauncher.Windows"
+        mc:Ignorable="d"
+        Title="Edit Tool Setup" Icon="/TerraLauncher;component/Resources/Icons/TreeView/TreeViewTool.png" SnapsToDevicePixels="True" UseLayoutRounding="True" Background="#FFF9F9F9" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight" ShowInTaskbar="False" PreviewMouseDown="OnPreviewMouseDown">
+    <Grid Width="380" Height="294">
+        <Grid Width="72" Height="72" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,18,0,0" Background="Transparent" ToolTip="Icons should be at max, 68x68">
+            <Rectangle Margin="2" Fill="#FF6675CC" IsHitTestVisible="False"/>
+            <Image x:Name="imageIcon" Source="/TerraLauncher;component/Resources/Terraria/SetupIcons/SetupIconTool.png" IsHitTestVisible="False" Width="68" Height="68" />
+            <Image Source="/TerraLauncher;component/Resources/Terraria/SetupIcons/SetupIconFrame.png" IsHitTestVisible="False" />
+        </Grid>
+
+        <Label Content="Name" HorizontalAlignment="Left" Margin="97,15,0,0" VerticalAlignment="Top" Padding="5,0,5,1" VerticalContentAlignment="Center" Height="23" Width="50" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="textBoxName" Height="23" Margin="152,15,14,0" VerticalAlignment="Top" IsHitTestVisible="True" AllowDrop="False" ScrollViewer.CanContentScroll="True"/>
+        <Label Content="Details" HorizontalAlignment="Left" Margin="97,43,0,0" VerticalAlignment="Top" Padding="5,0,5,1" VerticalContentAlignment="Center" Height="23" Width="50" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="textBoxDetails" Height="23" Margin="152,43,14,0" VerticalAlignment="Top" IsHitTestVisible="True" AllowDrop="False" ScrollViewer.CanContentScroll="True"/>
+
+        <Label Content="Icon" HorizontalAlignment="Left" Margin="97,71,0,0" VerticalAlignment="Top" Padding="5,0,5,1" VerticalContentAlignment="Center" Height="23" Width="50" HorizontalContentAlignment="Right"/>
+        <ComboBox x:Name="comboBoxIcon" HorizontalAlignment="Left" Margin="152,71,0,0" VerticalAlignment="Top" Width="205" SelectionChanged="OnIconSelectionChanged" Height="23"/>
+        <TextBox x:Name="textBoxCustomIcon" Height="23" Margin="152,71,46,0" VerticalAlignment="Top" IsHitTestVisible="True" AllowDrop="False" ScrollViewer.CanContentScroll="True" LostFocus="OnCustomIconLostFocus"/>
+        <Button x:Name="buttonBrowseCustomIcon" HorizontalAlignment="Right" Margin="0,71,14,0" VerticalAlignment="Top" Width="23" Height="23" Padding="0" Grid.IsSharedSizeScope="True" ToolTip="Locate Terraria executable" Focusable="False" IsTabStop="False" Click="OnBrowseCustomIcon">
+            <Image Height="16" Width="16" Source="/TerraLauncher;component/Resources/Icons/Browse.png" IsHitTestVisible="False"/>
+        </Button>
+
+        <Separator VerticalAlignment="Top" Margin="20,106,20,0"/>
+
+        <Label Content="Executable" HorizontalAlignment="Left" Margin="15,120,0,0" VerticalAlignment="Top" Padding="5,0,5,1" VerticalContentAlignment="Center" Height="23" HorizontalContentAlignment="Right" Width="75"/>
+        <TextBox x:Name="textBoxExe" Height="23" Margin="95,120,46,0" VerticalAlignment="Top" IsHitTestVisible="True" AllowDrop="False" ScrollViewer.CanContentScroll="True"/>
+        <Button HorizontalAlignment="Right" Margin="0,120,14,0" VerticalAlignment="Top" Width="23" Height="23" Padding="0" Grid.IsSharedSizeScope="True" ToolTip="Locate Terraria executable" Click="OnBrowseExe" Focusable="False" IsTabStop="False">
+            <Image Height="16" Width="16" Source="/Resources/Icons/Browse.png" IsHitTestVisible="False"/>
+        </Button>
+        <Label Content="Project" HorizontalAlignment="Left" Margin="15,148,0,0" VerticalAlignment="Top" Padding="5,0,5,1" VerticalContentAlignment="Center" Height="23" Width="75" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="textBoxProject" Height="23" Margin="95,148,46,0" VerticalAlignment="Top" IsHitTestVisible="True" AllowDrop="False" ScrollViewer.CanContentScroll="True"/>
+        <Button HorizontalAlignment="Right" Margin="0,148,14,0" VerticalAlignment="Top" Width="23" Height="23" Padding="0" Grid.IsSharedSizeScope="True" ToolTip="Locate Terraria executable" Click="OnBrowseProject" Focusable="False" IsTabStop="False">
+            <Image Height="16" Width="16" Source="/TerraLauncher;component/Resources/Icons/Browse.png" IsHitTestVisible="False"/>
+        </Button>
+        <Label Content="Arguments" HorizontalAlignment="Left" Margin="18,176,0,0" VerticalAlignment="Top" Padding="5,0,5,1" VerticalContentAlignment="Center" Height="23" Width="72" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="textBoxArguments" Height="23" Margin="95,176,14,0" VerticalAlignment="Top" IsHitTestVisible="True" AllowDrop="False" ScrollViewer.CanContentScroll="True"/>
+
+        <CheckBox x:Name="checkBoxDeveloper" Content="I am the Developer" HorizontalAlignment="Left" Margin="27,223,0,0" VerticalAlignment="Top" Click="OnDeveloperChecked" Padding="4,-1,0,0" ToolTip="Use if you want to open the source code project from the launcher"/>
+        <CheckBox x:Name="checkBoxCustomIcon" Content="Custom Icon" HorizontalAlignment="Left" Margin="161,223,0,0" VerticalAlignment="Top" Click="OnCustomIconChecked" Padding="4,-1,0,0" ToolTip="The maximum size for icons is 68x68"/>
+
+        <Separator VerticalAlignment="Top" Margin="20,211,20,0"/>
+        
+        <Button Content="OK"     Margin="0,0,95,10" Click="OnOKClicked" MinWidth="75" Padding="5,1" VerticalAlignment="Bottom" HorizontalAlignment="Right" IsDefault="True"/>
+        <Button Content="Cancel" Margin="0,0,10,10" MinWidth="75" Padding="5,1" VerticalAlignment="Bottom" HorizontalAlignment="Right" IsCancel="True"/>
+    </Grid>
+</Window>

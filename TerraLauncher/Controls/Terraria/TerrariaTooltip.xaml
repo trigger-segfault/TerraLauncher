@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="TerraLauncher.Controls.Terraria.TerrariaTooltip"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TerraLauncher.Controls.Terraria"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+
+        <Style TargetType="{x:Type ToolTip}">
+            <Setter Property="HasDropShadow" Value="False"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+    </UserControl.Resources>
+    <Border Background="#33000000" CornerRadius="4">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" RenderingBias="Quality" />
+        </Border.Effect>
+        <Label Content="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=Text}" FontFamily="/TerraLauncher;component/Resources/#Andy" Foreground="White" FontSize="22"/>
+    </Border>
+</UserControl>

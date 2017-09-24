@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FBA90416-616C-4F99-A371-491DC5807846}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TerraLauncher</RootNamespace>
+    <AssemblyName>TerraLauncher</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Config.cs" />
+    <Compile Include="Controls\SetupTreeView.xaml.cs">
+      <DependentUpon>SetupTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Terraria\DrawCropped.cs" />
+    <Compile Include="Controls\Terraria\TerrariaSetupOptionButton.xaml.cs">
+      <DependentUpon>TerrariaSetupOptionButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SpeedScrollViewer.cs" />
+    <Compile Include="Controls\Terraria\TerrariaButton.cs" />
+    <Compile Include="Controls\Terraria\TerrariaSetupEntry.xaml.cs">
+      <DependentUpon>TerrariaSetupEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Terraria\TerrariaSetupFolder.xaml.cs">
+      <DependentUpon>TerrariaSetupFolder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Terraria\TerrariaSetupList.xaml.cs">
+      <DependentUpon>TerrariaSetupList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Terraria\TerrariaTooltip.xaml.cs">
+      <DependentUpon>TerrariaTooltip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Terraria\TerrariaWindow.cs" />
+    <Compile Include="Controls\IntSpinner.xaml.cs">
+      <DependentUpon>IntSpinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IconPack\IconDir.cs" />
+    <Compile Include="IconPack\IconExtractor.cs" />
+    <Compile Include="IconPack\IconHelper.cs" />
+    <Compile Include="IconPack\IconInfo.cs" />
+    <Compile Include="IconPack\ResourceName.cs" />
+    <Compile Include="IconPack\Utility.cs" />
+    <Compile Include="IconPack\Win32.cs" />
+    <Compile Include="Setups\Game.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Setups\Server.cs" />
+    <Compile Include="Setups\Setup.cs" />
+    <Compile Include="Setups\SetupFolder.cs" />
+    <Compile Include="Sounds.cs" />
+    <Compile Include="Util\TerrariaLocator.cs" />
+    <Compile Include="Setups\Tool.cs" />
+    <Compile Include="Util\Extensions.cs" />
+    <Compile Include="Windows\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CreditsWindow.xaml.cs">
+      <DependentUpon>CreditsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditFolderWindow.xaml.cs">
+      <DependentUpon>EditFolderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditGameWindow.xaml.cs">
+      <DependentUpon>EditGameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditServerWindow.xaml.cs">
+      <DependentUpon>EditServerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditToolWindow.xaml.cs">
+      <DependentUpon>EditToolWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ErrorMessageBox.xaml.cs">
+      <DependentUpon>ErrorMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FolderBrowserLauncher.cs" />
+    <Compile Include="Windows\TriggerMessageBox.xaml.cs">
+      <DependentUpon>TriggerMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Util\EmbeddedResources.cs" />
+    <Page Include="Controls\SetupTreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Terraria\TerrariaSetupOptionButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Terraria\TerrariaSetupEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Terraria\TerrariaSetupFolder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Terraria\TerrariaSetupList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Terraria\TerrariaStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Terraria\TerrariaTooltip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\IntSpinner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Controls\Terraria\TerrariaScrollBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AboutWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\CreditsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\EditFolderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditGameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditServerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditToolWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ErrorMessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\TriggerMessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\Andy.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\ErrorIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\InfoIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\QuestionIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\TerrariaIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\WarningIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Browse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\AppError.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\About.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Credits.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Github.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Logo112.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Windows\Terraria\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\Controls\ButtonFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\Controls\ButtonFrameDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\Controls\ButtonFrameLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\Controls\ScrollThumbFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\Controls\ScrollTrackFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\Controls\SetupFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\Controls\WindowFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupIcons\SetupIconTree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupIcons\SetupIconTreeCorruption.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupIcons\SetupIconTreeCorruptionHallow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupIcons\SetupIconTreeCrimson.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupIcons\SetupIconTreeCrimsonHallow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupIcons\SetupIconTreeJungle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupIcons\SetupIconTShock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupOptions\SetupOptionFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupOptions\SetupOptionHammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupOptions\SetupOptionHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupOptions\SetupOptionLaunch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupIcons\SetupIconFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terraria\Sounds\MenuClose.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terraria\Sounds\MenuOpen.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terraria\Sounds\MenuTick.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupOptions\SetupOptionFolderEnter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupOptions\SetupOptionFolderLeave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupIcons\SetupIconFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\Buttons\CloseButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\Buttons\GameTab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\Buttons\ServerTab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\Buttons\SettingsButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\Buttons\ToolTab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\Controls\SetupFrameFocused.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupOptions\SetupOptionKey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupOptions\SetupOptionGear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\FolderAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\FolderRemove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\GameAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\GameRemove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\ServerAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\ServerRemove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\SetupEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\ToolAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\ToolRemove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\TreeView\TreeViewFolderClosed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\TreeView\TreeViewFolderOpen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\TreeView\TreeViewGame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\TreeView\TreeViewServer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\TreeView\TreeViewTool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\MoveDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\MoveUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\TreeView\TreeViewGameTMod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupIcons\SetupIconServer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupIcons\SetupIconTool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupIcons\SetupIconServerTree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terraria\SetupIcons\SetupIconServerTreeJungle.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <!-- https://gist.github.com/thoemmi/3724333 -->
+  <Target Name="EmbedReferencedAssemblies" AfterTargets="ResolveAssemblyReferences">
+    <ItemGroup>
+      <!-- get list of assemblies to copy -->
+      <AssembliesToEmbed Include="@(ReferenceCopyLocalPaths)" Condition="'%(Filename)%(Extension)' == 'Xceed.Wpf.Toolkit.dll'" />
+      <!-- add these assemblies to the list of embedded resources -->
+      <EmbeddedResource Include="@(AssembliesToEmbed)">
+        <LogicalName>%(Filename)%(Extension)</LogicalName>
+      </EmbeddedResource>
+      <!-- no need to copy the assmblies locally anymore -->
+      <ReferenceCopyLocalPaths Remove="@(AssembliesToEmbed)" />
+    </ItemGroup>
+    <Message Importance="high" Text="Embedding: @(AssembliesToEmbed->'%(Filename)%(Extension)', ', ')" />
+  </Target>
+</Project>

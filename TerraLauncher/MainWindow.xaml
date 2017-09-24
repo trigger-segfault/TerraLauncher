@@ -1,0 +1,60 @@
+﻿<Window x:Class="TerraLauncher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:local="clr-namespace:TerraLauncher.Controls"
+        xmlns:controls="clr-namespace:TerraLauncher.Controls.Terraria"
+        Title="Terra Launcher" AllowsTransparency="True" WindowStyle="None" SnapsToDevicePixels="True" UseLayoutRounding="True" Icon="App.ico" Closing="OnWindowClosing" Background="{x:Null}" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" FontFamily="/TerraLauncher;component/Resources/#Andy" Height="460" Width="600" MinWidth="560" MinHeight="420" Loaded="OnWindowLoaded" PreviewKeyDown="OnPreviewKeyDown" FocusVisualStyle="{x:Null}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Controls/Terraria/TerrariaScrollBar.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Controls/Terraria/TerrariaStyles.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <controls:TerrariaWindow x:Name="Client">
+        <Grid>
+            <Border Margin="8,40,8,49" Background="#FF323381" BorderThickness="2" BorderBrush="#FF14143A">
+                <Grid>
+                    <Grid x:Name="gridGames" />
+                    <Grid x:Name="gridServers" />
+                    <Grid x:Name="gridTools" />
+                </Grid>
+            </Border>
+
+            <controls:TerrariaButton x:Name="buttonGames" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="8,0,0,0" MouseUp="OnGamesTab">
+                <controls:TerrariaButton.ToolTip>
+                    <controls:TerrariaTooltip Text="Games Tab"/>
+                </controls:TerrariaButton.ToolTip>
+                <Image Source="/Resources/Terraria/Buttons/GameTab.png" Width="32" Height="32" />
+            </controls:TerrariaButton>
+            <controls:TerrariaButton x:Name="buttonServers" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="57,0,0,0" MouseUp="OnServersTab">
+                <controls:TerrariaButton.ToolTip>
+                    <controls:TerrariaTooltip Text="Servers Tab"/>
+                </controls:TerrariaButton.ToolTip>
+                <Image Source="/Resources/Terraria/Buttons/ServerTab.png" Width="32" Height="32" />
+            </controls:TerrariaButton>
+            <controls:TerrariaButton x:Name="buttonTools" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="106,0,0,0" MouseUp="OnToolsTab">
+                <controls:TerrariaButton.ToolTip>
+                    <controls:TerrariaTooltip Text="Tools Tab"/>
+                </controls:TerrariaButton.ToolTip>
+                <Image Source="/Resources/Terraria/Buttons/ToolTab.png" Width="32" Height="32" />
+            </controls:TerrariaButton>
+            <Label x:Name="labelListType" Content="Game List" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="160,0,0,0" Height="44" FontSize="28" Foreground="White" VerticalContentAlignment="Center" Padding="5,5,5,0">
+                <Label.Effect>
+                    <DropShadowEffect ShadowDepth="0" RenderingBias="Quality" />
+                </Label.Effect>
+            </Label>
+            
+            <controls:TerrariaButton x:Name="buttonSettings" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,8,0" MouseUp="OnEditSetups">
+                <controls:TerrariaButton.ToolTip>
+                    <controls:TerrariaTooltip Text="Change Settings"/>
+                </controls:TerrariaButton.ToolTip>
+                <Image Source="/Resources/Terraria/Buttons/SettingsButton.png" Width="32" Height="32" />
+            </controls:TerrariaButton>
+        </Grid>
+    </controls:TerrariaWindow>
+</Window>
