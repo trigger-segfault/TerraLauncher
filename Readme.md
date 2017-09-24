@@ -1,7 +1,7 @@
 # Terra Launcher ![AppIcon](https://i.imgur.com/x4eChND.png)
 A Terraria-styled hub for everything Terraria-related stored on your computer. Keep track of different game versions, servers, and tools. You can even customize game save directories. Basically it's just a glorified file browser.
 
-![Window Preview](https://i.imgur.com/HWS7S0H.png)
+![Window Preview](https://i.imgur.com/pdEhK5S.png)
 
 ### [Wiki](https://github.com/trigger-death/TerraLauncher/wiki) | [Credits](https://github.com/trigger-death/TerraLauncher/wiki/Credits) | [Image Album](https://imgur.com/a/Qh7aX)
 
