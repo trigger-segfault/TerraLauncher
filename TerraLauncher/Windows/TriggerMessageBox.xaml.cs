@@ -172,14 +172,6 @@ namespace TerraLauncher.Windows {
 				return 2;
 			return -1;
 		}
-		/**<summary>Gets the next button.</summary>*/
-		private Button GetNextButton(Button button) {
-			return GetButtonAt((IndexOfButton(button) + 1) % ButtonCount);
-		}
-		/**<summary>Gets the previous button.</summary>*/
-		private Button GetPreviousButton(Button button) {
-			return GetButtonAt((IndexOfButton(button) + ButtonCount - 1) % ButtonCount);
-		}
 
 		#endregion
 		//============ EVENTS ============
