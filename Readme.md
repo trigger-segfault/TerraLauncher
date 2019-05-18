@@ -5,6 +5,7 @@
 [![Total Downloads](https://img.shields.io/github/downloads/trigger-death/TerraLauncher/total.svg?style=flat)](https://github.com/trigger-death/TerraLauncher/releases)
 [![Creation Date](https://img.shields.io/badge/created-september%202017-A642FF.svg?style=flat)](https://github.com/trigger-death/TerraLauncher/commit/cdcf8869a032fd464e045437c6d340e2af51f81c)
 [![Terraria Forums](https://img.shields.io/badge/terraria-forums-28A828.svg?style=flat)](https://forums.terraria.org/index.php?threads/62315/)
+[![Discord](https://img.shields.io/discord/436949335947870238.svg?style=flat&logo=discord&label=chat&colorB=7389DC&link=https://discord.gg/vB7jUbY)](https://discord.gg/vB7jUbY)
 
 A Terraria-styled hub for everything Terraria-related stored on your computer. Keep track of different game versions, servers, and tools. You can even customize game save directories. Basically it's just a glorified file browser.
 
